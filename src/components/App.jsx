@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieSearch from './MovieSearch';
 import FavouritesList from './FavouritesList';
+import FavouritesSort from './FavouritesSort';
 import initialState, { setStorage } from '../initialState';
 import '../styles/App.scss';
 
@@ -48,6 +49,7 @@ class App extends Component {
           addToFavourites={this.handleAddToFavourites}
           isInFavourites={this.isInFavourites}
         />
+        <FavouritesSort />
         <FavouritesList
           movies={this.state.favouriteMovies}
           removeFavourites={this.handleRemoveFromFavourites}

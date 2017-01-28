@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import debounce from 'lodash.debounce';
 import ResultsList from './ResultsList';
+import { DEBOUNCE_DELAY_MS } from '../constants';
 
 class MovieSearch extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class MovieSearch extends Component {
     const { handleSearchInput, isInFavourites, searchQuery } = this.props;
     const debounceInput = debounce(() => {
       handleSearchInput(this.searchBar.value);
-    }, 700);
+    }, DEBOUNCE_DELAY_MS);
 
     return (
       <div className="MovieSearch">
