@@ -7,21 +7,21 @@ describe('MovieSearch component', () => {
     const props = {
       handleSearchInput: jest.fn(),
     };
-    const Wrapper = mount(<MovieSearch {...props} />);
-    return { Wrapper };
+    const wrapper = mount(<MovieSearch {...props} />);
+    return { wrapper };
   };
-  const { Wrapper } = setUp();
+  const { wrapper } = setUp();
 
   it('should exist', () => {
-    expect(Wrapper).toBeTruthy();
+    expect(wrapper).toBeTruthy();
   });
 
   it('should have props', () => {
-    expect(typeof Wrapper.props().handleSearchInput).toEqual('function');
+    expect(typeof wrapper.props().handleSearchInput).toEqual('function');
   });
 
   it('should render own elements', () => {
-    expect(Wrapper.find('input')).toBeTruthy();
-    expect(Wrapper.find('div').hasClass('MovieSearch')).toBe(true);
+    expect(wrapper.find('input')).toBeTruthy();
+    expect(wrapper.find('div').hasClass('MovieSearch')).toBe(true);
   });
 });
