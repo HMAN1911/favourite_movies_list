@@ -7,6 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
+    this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
   componentWillMount() {
@@ -17,10 +18,17 @@ class App extends Component {
     }
   }
 
+  handleSearchInput(value) {
+    this.setState({ searchValue: value });
+  }
+
   render() {
     return (
       <div className="App">
-        <MovieSearch />
+        <MovieSearch
+          handleSearchInput={this.handleSearchInput}
+          searchQuery={this.state.searchValue}
+        />
       </div>
     );
   }

@@ -1,14 +1,27 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import MovieSearch from '../components/MovieSearch';
 
 describe('MovieSearch component', () => {
-  it('should contain a div with classname MovieSearch', () => {
-    const wrapper = shallow(<MovieSearch />);
-    expect(wrapper.find('div').hasClass('MovieSearch')).toBe(true);
+  const setUp = () => {
+    const props = {
+      handleSearchInput: jest.fn(),
+    };
+    const Wrapper = mount(<MovieSearch {...props} />);
+    return { Wrapper };
+  };
+  const { Wrapper } = setUp();
+
+  it('should exist', () => {
+    expect(Wrapper).toBeTruthy();
   });
-  it('should contain an input tag', () => {
-    const wrapper = shallow(<MovieSearch />);
-    expect(wrapper.find('input')).toBeTruthy();
+
+  it('should have props', () => {
+    expect(typeof Wrapper.props().handleSearchInput).toEqual('function');
+  });
+
+  it('should render own elements', () => {
+    expect(Wrapper.find('input')).toBeTruthy();
+    expect(Wrapper.find('div').hasClass('MovieSearch')).toBe(true);
   });
 });
