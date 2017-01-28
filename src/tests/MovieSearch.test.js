@@ -6,6 +6,7 @@ describe('MovieSearch component', () => {
   const setUp = () => {
     const props = {
       handleSearchInput: jest.fn(),
+      searchQuery: 'test',
     };
     const wrapper = mount(<MovieSearch {...props} />);
     return { wrapper };
@@ -18,6 +19,7 @@ describe('MovieSearch component', () => {
 
   it('should have props', () => {
     expect(typeof wrapper.props().handleSearchInput).toEqual('function');
+    expect(typeof wrapper.props().searchQuery).toEqual('string');
   });
 
   it('should render own elements', () => {

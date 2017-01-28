@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import debounce from 'lodash.debounce';
+import ResultsList from './ResultsList';
 
 class MovieSearch extends Component {
   render() {
-    const { handleSearchInput } = this.props;
+    const { handleSearchInput, searchQuery } = this.props;
     const debounceInput = debounce(() => {
       handleSearchInput(this.searchBar.value);
     }, 700);
@@ -16,6 +17,13 @@ class MovieSearch extends Component {
           type="text"
           onInput={debounceInput}
         />
+        {
+          searchQuery
+          ? <ResultsList
+            searchQuery={searchQuery}
+          />
+          : null
+        }
       </div>
     );
   }
@@ -23,6 +31,7 @@ class MovieSearch extends Component {
 
 MovieSearch.propTypes = {
   handleSearchInput: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string.isRequired,
 };
 
 export default MovieSearch;
