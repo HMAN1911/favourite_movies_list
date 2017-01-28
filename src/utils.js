@@ -7,10 +7,22 @@ const sortMovies = (items, key) => {
   const [sortBy, order] = key.split('_');
 
   const sorted = items.sort((a, b) => {
-    if (a[sortBy] === b[sortBy]) {
+    const itemA = a[sortBy];
+    const itemB = b[sortBy];
+
+    if (itemA === itemB) {
       return 0;
     }
-    return (a[sortBy].toUpperCase() < b[sortBy].toUpperCase()) ? 1 : -1;
+
+    if (typeof itemA === 'number' && typeof itemB === 'number') {
+      return (itemA < itemB) ? 1 : -1;
+    }
+
+    if (itemA === 'N/A' || itemB === 'N/A') {
+      return -1;
+    }
+
+    return (itemA.toUpperCase() < itemB.toUpperCase()) ? 1 : -1;
   });
 
   return (order === 'Asc') ? sorted.reverse() : sorted;
