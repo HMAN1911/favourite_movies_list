@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieSearch from './MovieSearch';
+import FavouritesList from './FavouritesList';
 import initialState from '../initialState';
 import '../styles/App.scss';
 
@@ -28,6 +29,9 @@ class App extends Component {
         <MovieSearch
           handleSearchInput={this.handleSearchInput}
           searchQuery={this.state.searchValue}
+        />
+        <FavouritesList
+          movies={this.state.favouriteMovies}
         />
       </div>
     );
