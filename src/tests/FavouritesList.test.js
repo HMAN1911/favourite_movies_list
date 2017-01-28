@@ -8,6 +8,7 @@ describe('FavouritesList component', () => {
       movies: [],
       removeFavourites: jest.fn(),
       clearFavourites: jest.fn(),
+      sortBy: 'Title_Asc',
     };
     const wrapper = mount(<FavouritesList {...props} />);
     return { wrapper };

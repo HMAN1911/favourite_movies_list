@@ -14,6 +14,7 @@ class App extends Component {
     this.handleClearFavourites = this.handleClearFavourites.bind(this);
     this.isInFavourites = this.isInFavourites.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleSetSortBy = this.handleSetSortBy.bind(this);
   }
 
   handleAddToFavourites(movie) {
@@ -40,6 +41,10 @@ class App extends Component {
     this.setState({ searchValue: value });
   }
 
+  handleSetSortBy(e) {
+    this.setState({ sortBy: e.target.value });
+  }
+
   render() {
     return (
       <div className="App">
@@ -49,11 +54,15 @@ class App extends Component {
           addToFavourites={this.handleAddToFavourites}
           isInFavourites={this.isInFavourites}
         />
-        <FavouritesSort />
+        <FavouritesSort
+          setSortBy={this.handleSetSortBy}
+          sortBy={this.state.sortBy}
+        />
         <FavouritesList
           movies={this.state.favouriteMovies}
           removeFavourites={this.handleRemoveFromFavourites}
           clearFavourites={this.handleClearFavourites}
+          sortBy={this.state.sortBy}
         />
       </div>
     );

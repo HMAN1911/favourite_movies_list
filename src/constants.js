@@ -1,9 +1,9 @@
 export const DEBOUNCE_DELAY_MS = 700;
 export const SORT_OPTIONS = {
-  TitleAsc: 'Alphabetically Ascending',
-  TitleDesc: 'Alphabetically Descending',
-  YearAsc: 'Year Ascending',
-  YearDesc: 'Year Descending',
-  imdbRatingAsc: 'Rating Ascending',
-  imdbRatingDesc: 'Rating Descending',
+  Title_Asc: 'Alphabetically Ascending',
+  Title_Desc: 'Alphabetically Descending',
+  Year_Asc: 'Year Ascending',
+  Year_Desc: 'Year Descending',
+  imdbRating_Asc: 'Rating Ascending',
+  imdbRating_Desc: 'Rating Descending',
 };

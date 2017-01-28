@@ -1,6 +1,6 @@
 const initialState = {
   favouriteMovies: JSON.parse(localStorage.getItem('favouriteMovies')) || [],
-  sortBy: 'TitleAsc',
+  sortBy: 'Title_Asc',
   searchValue: '',
 };
 
