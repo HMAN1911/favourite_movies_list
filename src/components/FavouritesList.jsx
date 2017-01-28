@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
+import FavouritesItem from './FavouritesItem';
 
 const FavouritesList = ({ movies }) => (
   <div className="FavouritesList">
     <ul>
       {movies.map(movie => (
-        movie.Title
-      ))}
+        <FavouritesItem
+          key={movie.imdbID}
+          movie={movie}
+        />))}
     </ul>
     <button>Clear</button>
   </div>
