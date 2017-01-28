@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
+import FetchError from './FetchError';
 
 const ResultsItem = ({ movieFetch }) => {
-
+  if (movieFetch.rejected) {
+    return <FetchError reason={movieFetch.reason} />;
+  }
   if (movieFetch.fulfilled) {
     return (
       <li className="ResultsItem">
@@ -22,7 +25,6 @@ const ResultsItem = ({ movieFetch }) => {
 ResultsItem.propTypes = {
   movieFetch: PropTypes.instanceOf(PromiseState).isRequired,
 };
-
 
 export { ResultsItem as ResultsItemUnconnected };
 export default connect(props => ({

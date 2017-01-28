@@ -1,8 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import ResultsItem from './ResultsItem';
+import FetchError from './FetchError';
 
 const ResultsList = ({ moviesFetch }) => {
+  if (moviesFetch.rejected) {
+    return <FetchError reason={moviesFetch.reason} />;
+  }
+
   if (moviesFetch.fulfilled && moviesFetch.value.Search) {
     const movies = moviesFetch.value.Search.map(movie => movie);
     return (

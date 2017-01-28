@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { PromiseState } from 'react-refetch';
 import { ResultsItemUnconnected } from '../components/ResultsItem';
+import FetchError from '../components/FetchError';
 
 describe('ResultsItem component unconnected', () => {
   it('renders a li with a disabled button when promise state is pending', () => {
@@ -17,5 +18,13 @@ describe('ResultsItem component unconnected', () => {
       <ResultsItemUnconnected movieFetch={PromiseState.resolve(mockResponse)} />,
     );
     expect(wrapper.find('li').hasClass('ResultsItem')).toBe(true);
+  });
+
+  it('should render FetchError component when promise state is rejected', () => {
+    const expectedError = { error: 'fail' };
+    const wrapper = shallow(
+      <ResultsItemUnconnected movieFetch={PromiseState.reject(expectedError)} />,
+    );
+    expect(wrapper.find(FetchError)).toBeTruthy();
   });
 });
