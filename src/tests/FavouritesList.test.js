@@ -6,6 +6,8 @@ describe('FavouritesList component', () => {
   const setUp = () => {
     const props = {
       movies: [],
+      removeFavourites: jest.fn(),
+      clearFavourites: jest.fn(),
     };
     const wrapper = mount(<FavouritesList {...props} />);
     return { wrapper };

@@ -25,18 +25,18 @@ class App extends Component {
 
   handleAddToFavourites(movie) {
     this.setState({ favouriteMovies: [...this.state.favouriteMovies, movie], searchValue: '' });
-    setStorage(this.state.favouriteMovies);
+    setTimeout(() => setStorage(this.state.favouriteMovies), 0);
   }
 
   handleRemoveFromFavourites(imdbID) {
     const movies = this.state.favouriteMovies.filter(movie => movie.imdbID !== imdbID);
     this.setState({ favouriteMovies: movies });
-    setStorage(this.state.favouriteMovies);
+    setTimeout(() => setStorage(this.state.favouriteMovies), 0);
   }
 
   handleClearFavourites() {
     this.setState({ favouriteMovies: [] });
-    setStorage(this.state.favouriteMovies);
+    setTimeout(() => setStorage(this.state.favouriteMovies), 0);
   }
 
   isInFavourites(imdbID) {
@@ -58,6 +58,8 @@ class App extends Component {
         />
         <FavouritesList
           movies={this.state.favouriteMovies}
+          removeFavourites={this.handleRemoveFromFavourites}
+          clearFavourites={this.handleClearFavourites}
         />
       </div>
     );
