@@ -7,6 +7,8 @@ describe('MovieSearch component', () => {
     const props = {
       handleSearchInput: jest.fn(),
       searchQuery: 'test',
+      isInFavourites: jest.fn(),
+      addToFavourites: jest.fn(),
     };
     const wrapper = mount(<MovieSearch {...props} />);
     return { wrapper };

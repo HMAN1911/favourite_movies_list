@@ -3,8 +3,18 @@ import debounce from 'lodash.debounce';
 import ResultsList from './ResultsList';
 
 class MovieSearch extends Component {
+  constructor() {
+    super();
+    this.clearAndAddToFavourites = this.clearAndAddToFavourites.bind(this);
+  }
+
+  clearAndAddToFavourites(movie) {
+    this.props.addToFavourites(movie);
+    this.searchBar.value = '';
+  }
+
   render() {
-    const { handleSearchInput, searchQuery } = this.props;
+    const { handleSearchInput, isInFavourites, searchQuery } = this.props;
     const debounceInput = debounce(() => {
       handleSearchInput(this.searchBar.value);
     }, 700);
@@ -21,6 +31,8 @@ class MovieSearch extends Component {
           searchQuery
           ? <ResultsList
             searchQuery={searchQuery}
+            isInFavourites={isInFavourites}
+            addToFavourites={this.clearAndAddToFavourites}
           />
           : null
         }
@@ -31,6 +43,8 @@ class MovieSearch extends Component {
 
 MovieSearch.propTypes = {
   handleSearchInput: PropTypes.func.isRequired,
+  addToFavourites: PropTypes.func.isRequired,
+  isInFavourites: PropTypes.func.isRequired,
   searchQuery: PropTypes.string.isRequired,
 };
 

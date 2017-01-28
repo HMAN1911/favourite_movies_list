@@ -2,15 +2,16 @@ import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import FetchError from './FetchError';
 
-const ResultsItem = ({ movieFetch }) => {
+const ResultsItem = ({ movieFetch, addToFavourites, isInFavourites }) => {
   if (movieFetch.rejected) {
     return <FetchError reason={movieFetch.reason} />;
   }
   if (movieFetch.fulfilled) {
+    const isDisabled = isInFavourites(movieFetch.value.imdbID);
     return (
       <li className="ResultsItem">
         <span>{movieFetch.value.Title}</span>
-        <button>Add</button>
+        <button disabled={isDisabled} onClick={() => addToFavourites(movieFetch.value)}>Add</button>
       </li>
     );
   }
@@ -24,6 +25,8 @@ const ResultsItem = ({ movieFetch }) => {
 
 ResultsItem.propTypes = {
   movieFetch: PropTypes.instanceOf(PromiseState).isRequired,
+  addToFavourites: PropTypes.func.isRequired,
+  isInFavourites: PropTypes.func.isRequired,
 };
 
 export { ResultsItem as ResultsItemUnconnected };

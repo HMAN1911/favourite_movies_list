@@ -3,7 +3,7 @@ import { connect, PromiseState } from 'react-refetch';
 import ResultsItem from './ResultsItem';
 import FetchError from './FetchError';
 
-const ResultsList = ({ moviesFetch }) => {
+const ResultsList = ({ moviesFetch, addToFavourites, isInFavourites }) => {
   if (moviesFetch.rejected) {
     return <FetchError reason={moviesFetch.reason} />;
   }
@@ -17,6 +17,8 @@ const ResultsList = ({ moviesFetch }) => {
             <ResultsItem
               key={movie.imdbID}
               movie={movie}
+              isInFavourites={isInFavourites}
+              addToFavourites={addToFavourites}
             />
           ))}
         </ul>
@@ -28,6 +30,8 @@ const ResultsList = ({ moviesFetch }) => {
 
 ResultsList.propTypes = {
   moviesFetch: PropTypes.instanceOf(PromiseState).isRequired,
+  addToFavourites: PropTypes.func.isRequired,
+  isInFavourites: PropTypes.func.isRequired,
 };
 
 export { ResultsList as ResultsListUnconnected };
