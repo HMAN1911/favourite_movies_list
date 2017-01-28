@@ -15,14 +15,6 @@ class App extends Component {
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
-  componentWillMount() {
-    // turn the string in localStorage to a JS Object
-    // App never unmounts, so this will only happen once.
-    if (typeof this.state.favouriteMovies === 'string') {
-      this.setState({ favouriteMovies: JSON.parse(this.state.favouriteMovies) });
-    }
-  }
-
   handleAddToFavourites(movie) {
     this.setState({ favouriteMovies: [...this.state.favouriteMovies, movie], searchValue: '' });
     setTimeout(() => setStorage(this.state.favouriteMovies), 0);
