@@ -11,6 +11,8 @@ const ResultsItem = ({ movieFetch, addToFavourites, isInFavourites }) => {
     return (
       <li className="ResultsItem">
         <span>{movieFetch.value.Title}</span>
+        <span>{movieFetch.value.Year}</span>
+        <span>{movieFetch.value.imdbRating}</span>
         <button disabled={isDisabled} onClick={() => addToFavourites(movieFetch.value)}>Add</button>
       </li>
     );

@@ -10,19 +10,19 @@ const sortMovies = (items, key) => {
     const itemA = a[sortBy];
     const itemB = b[sortBy];
 
+    if (itemA === 'N/A') {
+      return -1;
+    }
     if (itemA === itemB) {
       return 0;
     }
-
     if (typeof itemA === 'number' && typeof itemB === 'number') {
       return (itemA < itemB) ? 1 : -1;
     }
-
-    if (itemA === 'N/A' || itemB === 'N/A') {
-      return -1;
+    if (typeof itemA === 'string' && typeof itemB === 'string') {
+      return (itemA.toUpperCase() < itemB.toUpperCase()) ? 1 : -1;
     }
-
-    return (itemA.toUpperCase() < itemB.toUpperCase()) ? 1 : -1;
+    return 0;
   });
 
   return (order === 'Asc') ? sorted.reverse() : sorted;
