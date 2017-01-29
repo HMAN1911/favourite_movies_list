@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ResultsItem from './ResultsItem';
 import FetchError from './FetchError';
 import '../styles/ResultsList.scss';
@@ -14,14 +15,22 @@ const ResultsList = ({ moviesFetch, addToFavourites, isInFavourites }) => {
     return (
       <div className="ResultsList">
         <ul>
-          {movies.map(movie => (
-            <ResultsItem
-              key={movie.imdbID}
-              movie={movie}
-              isInFavourites={isInFavourites}
-              addToFavourites={addToFavourites}
-            />
-          ))}
+          <ReactCSSTransitionGroup
+            transitionName="reveal"
+            transitionAppear
+            transitionAppearTimeout={500}
+            transitionEnter
+            transitionLeave
+          >
+            {movies.map(movie => (
+              <ResultsItem
+                key={movie.imdbID}
+                movie={movie}
+                isInFavourites={isInFavourites}
+                addToFavourites={addToFavourites}
+              />
+            ))}
+          </ReactCSSTransitionGroup>
         </ul>
       </div>
     );

@@ -9,3 +9,30 @@
   max-height: 500px;
   border: 1px solid $light-grey;
 }
+
+.reveal-enter {
+  opacity: 0.01;
+}
+
+.reveal-enter.reveal-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.reveal-leave {
+  opacity: 1;
+}
+
+.reveal-leave.reveal-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.reveal-appear {
+  opacity: 0.01;
+}
+
+.reveal-appear.reveal-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
