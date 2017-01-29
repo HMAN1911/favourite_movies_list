@@ -21,6 +21,8 @@ const ResultsList = ({ moviesFetch, addToFavourites, isInFavourites }) => {
             transitionAppearTimeout={500}
             transitionEnter
             transitionLeave
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
           >
             {movies.map(movie => (
               <ResultsItem
