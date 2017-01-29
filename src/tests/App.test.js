@@ -34,7 +34,7 @@ describe('App Component Method #addToFavourites', () => {
   wrapper.setState(initialState);
 
   it('should update state when called', () => {
-    const testMovie = { Title: 'test', Year: 'test', imdbId: 123 };
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
     wrapper.instance().handleAddToFavourites(testMovie);
     expect(wrapper.state().favouriteMovies[0].Title).toEqual('test');
   });
@@ -54,9 +54,38 @@ describe('App Component Method #handleSetSortBy', () => {
   const wrapper = shallow(<App />);
   wrapper.setState(initialState);
 
-  it('should update state with provided an event object', () => {
+  it('should update state when provided an event object', () => {
     const testEvent = { target: { value: 'Title_Desc' } };
     wrapper.instance().handleSetSortBy(testEvent);
     expect(wrapper.state().sortBy).toEqual('Title_Desc');
+  });
+});
+
+describe('App Component Method #handleClearFavourites', () => {
+  const wrapper = shallow(<App />);
+  wrapper.setState(initialState);
+
+  it('should clear favouriteMovies in state', () => {
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
+    wrapper.instance().handleAddToFavourites(testMovie);
+    wrapper.instance().handleClearFavourites();
+    expect(wrapper.state().favouriteMovies.length).toEqual(0);
+  });
+});
+
+describe('App Component Method #isInFavourites', () => {
+  const wrapper = shallow(<App />);
+  wrapper.setState(initialState);
+
+  it('returns true if provided film is present in favouriteMovies', () => {
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
+    wrapper.instance().handleAddToFavourites(testMovie);
+    expect(wrapper.instance().isInFavourites(123)).toBe(true);
+  });
+
+  it('returns false if provided film is not present in favouriteMovies', () => {
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
+    wrapper.instance().handleAddToFavourites(testMovie);
+    expect(wrapper.instance().isInFavourites(456)).toBe(false);
   });
 });
