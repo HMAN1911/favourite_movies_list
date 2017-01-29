@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import debounce from 'lodash.debounce';
 import ResultsList from './ResultsList';
 import { DEBOUNCE_DELAY_MS } from '../constants';
+import '../styles/MovieSearch.scss';
 
 class MovieSearch extends Component {
   constructor() {
