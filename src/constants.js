@@ -1,4 +1,4 @@
-export const DEBOUNCE_DELAY_MS = 700;
+export const DEBOUNCE_DELAY_MS = 400;
 export const SORT_OPTIONS = {
   Title_Asc: 'Alphabetically Ascending',
   Title_Desc: 'Alphabetically Descending',

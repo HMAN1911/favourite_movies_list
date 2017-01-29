@@ -30,7 +30,7 @@ npm test
 
 ## Development Notes
 
-* The first commit includes the [create-react-app boilerplate](https://github.com/facebookincubator/create-react-app) which was ejected to include sass.
+* The [first commit](https://github.com/HMAN1911/favourite_movies_list/commit/22f4a919d167b307dfb7220cd5758d232b91b48a) includes the [create-react-app boilerplate](https://github.com/facebookincubator/create-react-app) which was ejected to include sass.
 * Input in the search bar is debounced to prevent excessive network requests. [lodash.debounce](https://www.npmjs.com/package/lodash.debounce) was used for this.
 * [enzyme](https://github.com/airbnb/enzyme) and [jest](https://github.com/facebook/jest) used for component and unit testing.
 * All application state resides within `App.jsx`, using react's built in state management methods.
