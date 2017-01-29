@@ -4,7 +4,9 @@ import '../styles/FavouritesItem.scss';
 const FavouritesItem = ({ movie, removeFavourites }) => (
   <li className="FavouritesItem">
     <div className="FavouritesItem__TextContent">
-      <span className="FavouritesItem__Title">{movie.Title}</span>
+      <a href={`http://www.imdb.com/title/${movie.imdbID}`}>
+        <span className="FavouritesItem__Title">{movie.Title}</span>
+      </a>
       <span className="FavouritesItem__Year">({movie.Year})</span>
       <div className="FavouritesItem__imdbRating">IMDB: {movie.imdbRating}</div>
     </div>

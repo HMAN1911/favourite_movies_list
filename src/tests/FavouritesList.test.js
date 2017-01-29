@@ -19,10 +19,6 @@ describe('FavouritesList component', () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it('should have props', () => {
-    expect(typeof wrapper.props().movies).toEqual('object');
-  });
-
   it('should render own elements', () => {
     expect(wrapper.find('div').length).toEqual(2);
   });
