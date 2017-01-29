@@ -53,7 +53,7 @@ describe('sortMovies utility', () => {
     expect(sortMovies(sampleItems, 'imdbRating_Asc')).toEqual(expectedResult);
   });
 
-  it('should place N/A correctly at the bottom when sorting by rating Descending', () => {
+  it('should place N/A correctly at the end when sorting by rating Descending', () => {
     const expectedResult = [
       { Title: 'test', Year: 2017, imdbRating: 9 },
       { Title: 'Best', Year: 2016, imdbRating: 8 },
