@@ -1,7 +1,7 @@
 {
   "name": "bc_ms",
   "version": "0.1.0",
-  "homepage": "https://github.com/HMAN1911/favourite_movies_list",
+  "homepage": "https://hman1911.github.io/favourite_movies_list",
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.5.1",
