@@ -10,6 +10,10 @@ const ResultsList = ({ moviesFetch, addToFavourites, isInFavourites }) => {
     return <FetchError reason={moviesFetch.reason} />;
   }
 
+  if (moviesFetch.fulfilled && !moviesFetch.value.Search) {
+    return <h3>Your princess is in another castle... Try another search.</h3>;
+  }
+
   if (moviesFetch.fulfilled && moviesFetch.value.Search) {
     const movies = moviesFetch.value.Search.map(movie => movie);
     return (
