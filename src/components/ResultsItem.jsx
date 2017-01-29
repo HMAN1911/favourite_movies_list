@@ -39,7 +39,7 @@ ResultsItem.propTypes = {
 export { ResultsItem as ResultsItemUnconnected };
 export default connect(props => ({
   movieFetch: {
-    url: `http://www.omdbapi.com/?type=movie&i=${props.movie.imdbID}`,
+    url: `https://www.omdbapi.com/?type=movie&i=${props.movie.imdbID}`,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     },
