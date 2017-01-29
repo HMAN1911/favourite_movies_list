@@ -89,3 +89,27 @@ describe('App Component Method #isInFavourites', () => {
     expect(wrapper.instance().isInFavourites(456)).toBe(false);
   });
 });
+
+describe('App Component Method #handleRemoveFromFavourites', () => {
+  const wrapper = shallow(<App />);
+  wrapper.setState(initialState);
+
+  it('should remove provided imdbID object from favouriteMovies array', () => {
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
+    const testAnotherMovie = { Title: 'another', Year: 'test', imdbID: 456 };
+    wrapper.instance().handleAddToFavourites(testMovie);
+    wrapper.instance().handleAddToFavourites(testAnotherMovie);
+    wrapper.instance().handleRemoveFromFavourites(123);
+    expect(wrapper.state().favouriteMovies).toContainEqual(testAnotherMovie);
+  });
+
+  it('should return an identical array if imdbID not present in array', () => {
+    const testMovie = { Title: 'test', Year: 'test', imdbID: 123 };
+    const testAnotherMovie = { Title: 'another', Year: 'test', imdbID: 456 };
+    wrapper.instance().handleAddToFavourites(testMovie);
+    wrapper.instance().handleAddToFavourites(testAnotherMovie);
+    wrapper.instance().handleRemoveFromFavourites(789);
+    expect(wrapper.state().favouriteMovies).toContainEqual(testAnotherMovie);
+    expect(wrapper.state().favouriteMovies).toContainEqual(testMovie);
+  });
+});
