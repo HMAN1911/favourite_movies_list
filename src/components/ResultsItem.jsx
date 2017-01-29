@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import FetchError from './FetchError';
+import '../styles/ResultsItem.scss';
 
 const ResultsItem = ({ movieFetch, addToFavourites, isInFavourites }) => {
   if (movieFetch.rejected) {
@@ -10,16 +11,20 @@ const ResultsItem = ({ movieFetch, addToFavourites, isInFavourites }) => {
     const isDisabled = isInFavourites(movieFetch.value.imdbID);
     return (
       <li className="ResultsItem">
-        <span>{movieFetch.value.Title}</span>
-        <span>{movieFetch.value.Year}</span>
-        <span>{movieFetch.value.imdbRating}</span>
+        <div className="ResultsItem__TextContent">
+          <span className="ResultsItem__Title">{movieFetch.value.Title}</span>
+          <span className="ResultsItem__Year">({movieFetch.value.Year})</span>
+          <div className="ResultsItem__imdbRating">IMDB: {movieFetch.value.imdbRating}</div>
+        </div>
         <button disabled={isDisabled} onClick={() => addToFavourites(movieFetch.value)}>Add</button>
       </li>
     );
   }
   return (
     <li className="ResultsItem">
-      <span>Loading...</span>
+      <div className="ResultsItem__TextContent">
+        <span className="ResultsItem--Loading">Loading...</span>
+      </div>
       <button disabled>add</button>
     </li>
   );

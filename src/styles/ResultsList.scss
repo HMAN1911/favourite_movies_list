@@ -1,0 +1,11 @@
+@import 'colours';
+
+.ResultsList {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  overflow-y: scroll;
+  max-height: 500px;
+  border: 1px solid $light-grey;
+}

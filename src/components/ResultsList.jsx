@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import ResultsItem from './ResultsItem';
 import FetchError from './FetchError';
+import '../styles/ResultsList.scss';
 
 const ResultsList = ({ moviesFetch, addToFavourites, isInFavourites }) => {
   if (moviesFetch.rejected) {
