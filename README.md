@@ -13,6 +13,9 @@ npm install
 ```
 
 ## Usage
+
+Try it online [here](https://hman1911.github.io/favourite_movies_list/), or and run it locally.
+
 To start using the app, run:
 
 ```
