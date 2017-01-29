@@ -24,6 +24,6 @@ describe('FavouritesList component', () => {
   });
 
   it('should render own elements', () => {
-    expect(wrapper.find('div').hasClass('FavouritesList')).toBe(true);
+    expect(wrapper.find('div').length).toEqual(2);
   });
 });
