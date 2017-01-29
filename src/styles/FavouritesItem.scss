@@ -1,0 +1,47 @@
+@import 'colours';
+
+.FavouritesItem {
+  border-bottom: 1px solid $light-grey;
+  padding: 20px 0 20px 0;
+}
+
+.FavouritesItem__TextContent {
+  width: 70%;
+  display: inline-block;
+}
+
+.FavouritesItem__Interface {
+  width: 30%;
+  text-align: right;
+  display: inline-block;
+  vertical-align: bottom;
+  
+  button {
+    margin: 0  0 auto;
+    background-color: $warning;
+    border: 0;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    width: 100px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+}
+
+.FavouritesItem__Year {
+  margin-left: 6px;
+  font-size: 0.8rem;
+}
+
+.FavouritesItem__Title {
+  font-size: 1.2rem;
+  vertical-align: top;
+}
+
+.FavouritesItem__imdbRating {
+  font-size: 1.2rem;
+  padding-top: 2px;
+  vertical-align: top;
+}

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import FavouritesItem from './FavouritesItem';
 import sortMovies from '../utils';
+import '../styles/FavouritesList.scss';
 
 const FavouritesList = ({ movies, removeFavourites, clearFavourites, sortBy }) => {
   const sorted = sortMovies(movies, sortBy);
@@ -14,7 +15,9 @@ const FavouritesList = ({ movies, removeFavourites, clearFavourites, sortBy }) =
             movie={movie}
           />))}
       </ul>
-      <button onClick={clearFavourites}>Clear</button>
+      <div className="FavouritesList__Interface">
+        <button onClick={clearFavourites}>Clear</button>
+      </div>
     </div>
   );
 };

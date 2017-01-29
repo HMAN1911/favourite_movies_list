@@ -1,10 +1,16 @@
 import React, { PropTypes } from 'react';
+import '../styles/FavouritesItem.scss';
 
 const FavouritesItem = ({ movie, removeFavourites }) => (
   <li className="FavouritesItem">
-    <div>{movie.Title}({movie.Year})</div>
-    <div>IMDB: {movie.imdbRating}</div>
-    <button onClick={() => removeFavourites(movie.imdbID)}>Remove</button>
+    <div className="FavouritesItem__TextContent">
+      <span className="FavouritesItem__Title">{movie.Title}</span>
+      <span className="FavouritesItem__Year">({movie.Year})</span>
+      <div className="FavouritesItem__imdbRating">IMDB: {movie.imdbRating}</div>
+    </div>
+    <div className="FavouritesItem__Interface">
+      <button onClick={() => removeFavourites(movie.imdbID)}>Remove</button>
+    </div>
   </li>
 );
 
