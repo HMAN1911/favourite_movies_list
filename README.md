@@ -38,11 +38,11 @@ npm test
 * `browserMocks` is used to mock localStorage for testing.
 * [ReactCSSTransitionGroup](https://www.npmjs.com/package/react-addons-css-transition-group) was used to add a subtle reveal animation to the dropdown items.
 * Items in the search results additionally display year and IMDB Rating of search query results.
+* iPhone6 media queries for a better responsive experience. Finer control over mobile vs browser experience can be added using [enquirejs](https://github.com/WickyNilliams/enquire.js).
 
 ## Considerations and Next Steps
 
 * I considered using `React Router`, however the app as it currently stands lacks a good use case for the library, as there are no true 'views' to route.
-* Minimal effort has been made for mobile compatibility, though it works decently on iPhone and android devices.
 * If application state becomes more complex, [immutableJS](https://facebook.github.io/immutable-js/) can be introduced.
 * Browser backward compatibility could be improved upon, though it was out of scope for this project.
 
