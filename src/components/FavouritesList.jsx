@@ -1,26 +1,51 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import FavouritesItem from './FavouritesItem';
 import sortMovies from '../utils';
 import '../styles/FavouritesList.scss';
 
-const FavouritesList = ({ movies, removeFavourites, clearFavourites, sortBy }) => {
-  const sorted = sortMovies(movies, sortBy);
-  return (
-    <div className="FavouritesList">
-      <ul>
-        {sorted.map(movie => (
-          <FavouritesItem
-            key={movie.imdbID}
-            removeFavourites={removeFavourites}
-            movie={movie}
-          />))}
-      </ul>
-      <div className="FavouritesList__Interface">
-        <button onClick={clearFavourites}>Clear</button>
+class FavouritesList extends Component {
+  constructor() {
+    super();
+    this.state = { confirm: false };
+    this.toggleConfirm = this.toggleConfirm.bind(this);
+  }
+
+  toggleConfirm() {
+    this.setState({ confirm: !this.state.confirm });
+  }
+
+  render() {
+    const { movies, removeFavourites, clearFavourites, sortBy } = this.props;
+    const sorted = sortMovies(movies, sortBy);
+    return (
+      <div className="FavouritesList">
+        <ul>
+          {
+            sorted.map(movie => (
+              <FavouritesItem
+                key={movie.imdbID}
+                removeFavourites={removeFavourites}
+                movie={movie}
+              />
+            ))
+          }
+        </ul>
+        <div className="FavouritesList__Interface">
+          <button onClick={this.toggleConfirm}>
+            {this.state.confirm ? 'cancel' : 'clear'}
+          </button>
+          <button
+            onClick={() => {
+              clearFavourites();
+              this.toggleConfirm();
+            }}
+            className={this.state.confirm ? 'FavouritesList--confirm' : 'FavouritesList--hide'}
+          >Confirm</button>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 FavouritesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,

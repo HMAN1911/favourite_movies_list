@@ -18,4 +18,13 @@
     text-transform: uppercase;
     cursor: pointer;
   }
+  .FavouritesList--confirm {
+    display: inline-block;
+    background-color: $warning;
+  }
+
+  .FavouritesList--hide {
+    display: none;
+  }
 }
+
