@@ -35,7 +35,7 @@ npm test
 * [enzyme](https://github.com/airbnb/enzyme) and [jest](https://github.com/facebook/jest) used for component and unit testing.
 * All application state resides within `App.jsx`, using react's built in state management methods.
 * `setTimeout` was used to prevent excessively writing to localStorage using React lifecycle methods.
-* `config/browserMocks' is used to mock localStorage for testing.
+* `config/browserMocks` is used to mock localStorage for testing.
 * [ReactCSSTransitionGroup](https://www.npmjs.com/package/react-addons-css-transition-group) was used to add a subtle reveal animation to the dropdown items.
 * Items in the search results additionally display year and IMDB Rating of search query results. This also fetches all individual movie results, so they can be presented in the autocomplete results box.
 * iPhone6 media queries have been added for a better responsive experience. Finer control over mobile vs browser experience can be added using [enquirejs](https://github.com/WickyNilliams/enquire.js), or the like.
