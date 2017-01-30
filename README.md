@@ -14,7 +14,7 @@ npm install
 
 ## Usage
 
-Try it online [here](https://hman1911.github.io/favourite_movies_list/), or and run it locally.
+Try it online [here](https://hman1911.github.io/favourite_movies_list/), or run it locally.
 
 To start using the app, run:
 
@@ -38,12 +38,12 @@ npm test
 * `browserMocks` is used to mock localStorage for testing.
 * [ReactCSSTransitionGroup](https://www.npmjs.com/package/react-addons-css-transition-group) was used to add a subtle reveal animation to the dropdown items.
 * Items in the search results additionally display year and IMDB Rating of search query results.
-* iPhone6 media queries for a better responsive experience. Finer control over mobile vs browser experience can be added using [enquirejs](https://github.com/WickyNilliams/enquire.js).
+* iPhone6 media queries for a better responsive experience. Finer control over mobile vs browser experience can be added using [enquirejs](https://github.com/WickyNilliams/enquire.js), or something similar.
 
 ## Considerations and Next Steps
 
 * I considered using `React Router`, however the app as it currently stands lacks a good use case for the library, as there are no true 'views' to route.
 * If application state becomes more complex, [immutableJS](https://facebook.github.io/immutable-js/) can be introduced.
 * Browser backward compatibility could be improved upon, though it was out of scope for this project.
-
+* I chose to keep the clear confirm button state within its own component, as it does not impact any other part of the app.
 
